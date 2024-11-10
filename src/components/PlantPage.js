@@ -38,12 +38,24 @@ function PlantPage() {
   const filteredPlants = plants.filter((plant) =>
     plant.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  
+
+  // Delete plant 
+  const deletePlant = (id) => {
+    fetch(`http://localhost:6001/plants/${id}`, {
+      method: "DELETE",
+    })
+    .then(() => {
+      // Update local state to remove deleted plant
+      setPlants((prevPlants) => prevPlants.filter(plant => plant.id !== id));
+    })
+    .catch(error => console.error('Error deleting plant:', error));
+  };
+
   return (
     <main>
       <NewPlantForm onAddPlant={addPlant} />
       <Search onSearch={handleSearch} searchTerm={searchQuery}/>
-      <PlantList plants={filteredPlants} />
+      <PlantList plants={filteredPlants} onDelete={deletePlant} />
     </main>
   );
 }
