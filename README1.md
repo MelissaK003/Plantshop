@@ -32,6 +32,6 @@ React, HTML, CSS , GIT ,JSX, Bootstrap ,Netlify , JSON
 email :Melissakiptoo@gmail.com
 
 ### License
-LIcenced under the MT-licence of https://github.com/MelissaK003/Travel-Made-Easier/blob/master/LICENSE
+Licensed under the MT-licence of https://github.com/MelissaK003/Plantshop/blob/master/LICENSE
 
 Copyright (c) 2024 **Melissa Kiptoo**
