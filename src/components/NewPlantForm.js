@@ -7,8 +7,7 @@ function NewPlantForm({onAddPlant}) {
   // const [submitform, setSubmitform] = useState([]);
 
   //Prevent Default form submission 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (event) => {event.preventDefault();
   
   const newPlant = {name,image,price}
 

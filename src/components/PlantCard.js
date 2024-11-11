@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 function PlantCard({ plants, onDelete }) {
+  const [soldOutPlants, setSoldOutPlants] = useState({});
+  const handleSoldOut = (plantId) => {
+    setSoldOutPlants({...soldOutPlants,[plantId]: true});
+  };
+
   return (
     <>
       {plants.map((plant) => (
@@ -8,11 +13,11 @@ function PlantCard({ plants, onDelete }) {
           <img src={plant.image} alt={plant.name} />
           <h4>{plant.name}</h4>
           <p>Price: {plant.price}</p>
-          {plant.inStock ? (
-            <button className="primary">In Stock</button>
+          {(!soldOutPlants[plant.id] ? (
+            <button className="primary" onClick={() => handleSoldOut(plant.id)}>In Stock</button>
           ) : (
-            <button disabled>Sold Out</button>
-          )}
+            <button disabled className="sold-out">Sold Out</button>
+          ))}
           <button className="delete-button" onClick={() => onDelete(plant.id)}>Delete</button>
         </li>
       ))}
