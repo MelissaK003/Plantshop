@@ -9,7 +9,7 @@ function PlantPage() {
 
 //Fetching data from the database
   useEffect (() => {
-    fetch("http://localhost:6001/plants")
+    fetch("https://plantshop.onrender.com/plants")
     .then(response => response.json())
     .then(plants => setPlants(plants))
     .catch(error => console.error('Error fetching data:' ,error))
@@ -17,7 +17,7 @@ function PlantPage() {
 
 //Adding a new plant on the form
   const addPlant = (newPlant) => {
-    fetch("http://localhost:6001/plants", {
+    fetch("https://plantshop.onrender.com/plants", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ function PlantPage() {
 
 // Delete plant 
   const deletePlant = (id) => {
-    fetch(`http://localhost:6001/plants/${id}`, {
+    fetch(`https://plantshop.onrender.com/plants/${id}`, {
       method: "DELETE",
     })
     .then(() => {
